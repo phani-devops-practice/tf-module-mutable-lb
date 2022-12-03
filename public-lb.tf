@@ -1,6 +1,6 @@
 resource "aws_lb" "public" {
   name               = "${var.PROJECT}-${var.ENV}-alb-public"
-  internal           = true
+  internal           = false
   load_balancer_type = "application"
   security_groups    = [aws_security_group.public-sg.id]
   subnets            = var.PUBLIC_SUBNET_IDS
@@ -10,3 +10,4 @@ resource "aws_lb" "public" {
     Environment = "${var.PROJECT}-${var.ENV}-alb-public"
   }
 }
+
